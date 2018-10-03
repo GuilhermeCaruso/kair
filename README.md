@@ -1,8 +1,7 @@
 
 <p align="center" >
-    <img width="200px" src ="https://i.imgur.com/gV7VB8r.png" />
-    <img width="50px" style="margin-bottom:70px" src="http://pluspng.com/img-png/free-png-plus-sign-plus-sign-comments-980.png"/>
-    <img width="200px" src="http://2.bp.blogspot.com/-vGwjqrDPw4E/Vi6MkOFhbUI/AAAAAAAAAy4/4RTo5gO6-jg/s1600/golang.sh-600x600.png"/>
+    <img width="300" src ="https://i.imgur.com/AqveQES.png" />
+   
     
 </p>
 
