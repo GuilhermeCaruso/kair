@@ -6,26 +6,95 @@
 # Kair
 > Date and Time - Golang Formatter Library
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![GitHub](https://img.shields.io/badge/golang%20-v1.11-blue.svg) [![Go Report Card](https://goreportcard.com/badge/github.com/GuilhermeCaruso/Kair)](https://goreportcard.com/report/github.com/GuilhermeCaruso/Kair) ![Github](https://img.shields.io/badge/codecov-100%25-green.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Go Report Card](https://goreportcard.com/badge/github.com/GuilhermeCaruso/Kair)](https://goreportcard.com/report/github.com/GuilhermeCaruso/Kair) [![codecov](https://codecov.io/gh/GuilhermeCaruso/Kair/branch/master/graph/badge.svg)](https://codecov.io/gh/GuilhermeCaruso/Kair) [![Build Status](https://travis-ci.com/GuilhermeCaruso/Kair.svg?branch=master)](https://travis-ci.com/GuilhermeCaruso/Kair) ![GitHub](https://img.shields.io/badge/golang%20->=1.6.3-blue.svg) [![GoDoc](https://godoc.org/github.com/GuilhermeCaruso/Kair?status.svg)](https://godoc.org/github.com/GuilhermeCaruso/Kair)
 
 ## Setup
 
 To get Kair
 
-##### Go CLI
+##### > Go CLI
 ```sh
 go get github.com/GuilhermeCaruso/Kair
 ```
-##### Go DEP
+##### > Go DEP
 ```sh
 dep ensure -add github.com/GuilhermeCaruso/Kair
 ```
-##### Govendor
+##### > Govendor
 ```sh
 govendor fetch github.com/GuilhermeCaruso/Kair
 ```
 
-###Under Construction...
+## Example
+```go
+package main
+
+import (
+	"fmt"
+
+	k "github.com/GuilhermeCaruso/Kair"
+)
+
+func main() {
+	now := k.Now()
+
+	fmt.Printf("Right now is %s \n", now.PersonalFormat("dd/MM/YYYY hh:mm:ss"))
+
+	date := k.Date(29, 05, 1980)
+
+	fmt.Printf("The %s was a %s in %s\n",
+		date.Format("L"),
+		date.PersonalFormat("DD"),
+		date.PersonalFormat("MMMM"))
+}
+
+```
+
+## Formatters
+- Standard
+```sh
+    "LT":   10:20 AM,
+    "LTS":  10:20:00 AM,
+    "L":    20/05/2018,
+    "l":    20/5/2018,
+    "LL":   May 20, 2018,
+    "ll":   May 20, 2018,
+    "LLL":  May 20, 2018 10:20 AM,
+    "lll":  May 20, 2018 10:20 AM,
+    "LLLL": Sunday, May 20, 2018 10:20 AM,
+    "llll": Sun, May 20, 2018 10:20 AM,
+    "":     2018-05-20 10:20:00 +0000 UTC,
+```
+
+- Custom
+```sh
+    "MMMM": Long Month,
+    "MMM":  Month,
+    "MM":   Zero Number Month,
+    "M":    Number Month,
+    "YYYY": Long Year,
+    "YY":   Year,
+    "DD":   Long Day,
+    "D":    Day,
+    "dd":   Long Number Day,
+    "d":    Number Day,
+    "hh":   Long Hour,
+    "h":    Hour,
+    "mm":   Long Minute,
+    "m":    Minute,
+    "ss":   Long Second,
+    "s":    Second
+```
+
+## Contributing
+Please feel free to make suggestions, create issues, fork the repository and send pull requests!
+
+##To do:
+- [X] Implement Standard Format
+- [X] Implement Custom Format
+- [X] Implement Now(), Date() and DateTime() initializers
+- [ ] Implement Relative Time (FromNow, StartOf ...)
+- [ ] Implement CalendarTime (add, subtract, calendar)
 
 ## License
 

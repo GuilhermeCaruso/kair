@@ -66,10 +66,10 @@ func TestKFormat(t *testing.T) {
 	fmt.Println("TestKFormat - OK")
 }
 
-//TestPersonalFormat - Checks whether custom return is correct
+//CustomFormat - Checks whether custom return is correct
 func TestPersonalFormat(t *testing.T) {
 	date := DateTime(20, 05, 2018, 10, 20, 0)
-	aR := date.PersonalFormat("MMM/dd/YY h:m:s")
+	aR := date.CustomFormat("MMM/dd/YY h:m:s")
 	eR := "May/20/18 10:20:0"
 	if aR != eR {
 		t.Fatalf("Expected %s but go %s", eR, aR)

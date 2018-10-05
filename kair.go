@@ -1,6 +1,5 @@
 // Copyright 2018 Guilherme Caruso. All rights reserved.
 // License that can be found in the LICENSE file.
-// https://godoc.org/github.com/GuilhermeCaruso/Kair
 
 /*
 	Package Kair
@@ -116,7 +115,7 @@ func (k KairStruct) Format(format string) string {
 }
 
 /*
-	Uses personal sequence for the time format.
+	Uses custom sequence for the time format.
 
 	Returns a string custom datetime format
 
@@ -139,7 +138,7 @@ func (k KairStruct) Format(format string) string {
 		"s":    Second
 
 */
-func (k KairStruct) PersonalFormat(pformat string) string {
+func (k KairStruct) CustomFormat(pformat string) string {
 	re := regexp.MustCompile(`(?m)(M{4})|(M{3})|(M{2})|(M{1})|(Y{4})|(Y{2})|(D{2})|(D{1})|(d{2})|(d{1})|(h{2})|(h{1})|(m{2})|(m{1})|(s{2})|(s{1})`)
 
 	for _, match := range re.FindAllString(pformat, -1) {
