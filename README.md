@@ -89,7 +89,7 @@ func main() {
 ## Contributing
 Please feel free to make suggestions, create issues, fork the repository and send pull requests!
 
-##To do:
+## To do:
 - [X] Implement Standard Format
 - [X] Implement Custom Format
 - [X] Implement Now(), Date() and DateTime() initializers
