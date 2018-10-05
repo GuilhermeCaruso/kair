@@ -119,7 +119,7 @@ func (k KairStruct) Format(format string) string {
 
 	Returns a string custom datetime format
 
-	Custom formatters :[
+	Custom formatters :
 		"MMMM": Long Month,
 		"MMM":  Month,
 		"MM":   Zero Number Month,
@@ -136,7 +136,6 @@ func (k KairStruct) Format(format string) string {
 		"m":    Minute,
 		"ss":   Long Second,
 		"s":    Second
-		]
 
 */
 func (k KairStruct) PersonalFormat(pformat string) string {
