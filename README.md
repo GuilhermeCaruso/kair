@@ -38,14 +38,15 @@ import (
 func main() {
 	now := k.Now()
 
-	fmt.Printf("Right now is %s \n", now.CustomFormat("dd/MM/YYYY hh:mm:ss"))
+    fmt.Printf("Right now is %s \n", now.CustomFormat("dd/MM/YYYY hh:mm:ss"))
 
 	date := k.Date(29, 05, 1980)
 
 	fmt.Printf("The %s was a %s in %s\n",
 		date.Format("L"),
 		date.CustomFormat("DD"),
-		date.CustomFormat("MMMM"))
+        date.CustomFormat("MMMM"))
+    //The 29/05/1980 was a Thursday in May 
 }
 
 ```
