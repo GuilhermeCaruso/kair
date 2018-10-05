@@ -1,7 +1,38 @@
-//
+// Copyright 2018 Guilherme Caruso. All rights reserved.
+// License that can be found in the LICENSE file.
+
+/*
+	Package Kair
+
+	Used to facilitate the process of formatting dates and times using human language in your process.
+
+	Examples:
+
+	> If you need to get the current time:
+		Kair.Now().Time
+
+	> If you need to get a formatted date:
+		Kair.Date().Time
+
+	> If you need to get a formatted datetime:
+		Kair.DateTime().Time
+
+
+	> Using standart formatters:
+		Kair.DateTime("20,05,2018,10,20,00").Format("LT") // "10:20 AM"
+		Kair.DateTime("20,05,2018,10,20,00").Format("LL") // "29/5/2018"
+		Kair.DateTime("20,05,2018,10,20,00").Format("llll") // "Mon, May 29, 2018 10:20 AM"
+
+	-> Using custom formatter:
+		Kair.DateTime("20,05,2018,10,20,00").PersonalFormat(""MMM/dd/YY h:m:s"") // "May/20/18 10:20:0"
+
+
+*/
 package Kair
 
 import (
+	"regexp"
+	"strings"
 	"time"
 )
 
@@ -21,13 +52,39 @@ var (
 		11: time.November,
 		12: time.December,
 	}
+	formats = map[string]string{
+		"MMMM": "January",
+		"MMM":  "Jan",
+		"MM":   "01",
+		"M":    "1",
+		"YYYY": "2006",
+		"YY":   "06",
+		"DD":   "Monday",
+		"D":    "Mon",
+		"dd":   "02",
+		"d":    "2",
+		"hh":   "03",
+		"h":    "3",
+		"mm":   "04",
+		"m":    "4",
+		"ss":   "05",
+		"s":    "5",
+	}
 )
 
+//Used to standardize the use of functions
 type KairStruct struct {
 	Time time.Time
 }
 
-func (k KairStruct) KFormat(format string) string {
+/*
+	Uses standard sequence for the time format.
+	Returns a string standart format if var is invalid
+
+	Standard formats :
+		["LT", "LTS", "L", "l", "LL", "ll", "LLL", "lll", "LLLL", "llll"]
+*/
+func (k KairStruct) Format(format string) string {
 	timeLint := k.Time
 	var timeriz string
 	switch format {
@@ -57,19 +114,63 @@ func (k KairStruct) KFormat(format string) string {
 	return timeriz
 }
 
+/*
+	Uses personal sequence for the time format.
+
+	Returns a string custom datetime format
+
+	Custom formatters :[
+		"MMMM": Long Month,
+		"MMM":  Month,
+		"MM":   Zero Number Month,
+		"M":    Number Month,
+		"YYYY": Long Year,
+		"YY":   Year,
+		"DD":   Long Day,
+		"D":    Day,
+		"dd":  	Long Number Day,
+		"d":    Number Day,
+		"hh":   Long Hour,
+		"h":   	Hour,
+		"mm":   Long Minute,
+		"m":    Minute,
+		"ss":   Long Second,
+		"s":    Second
+		]
+
+*/
+func (k KairStruct) PersonalFormat(pformat string) string {
+	re := regexp.MustCompile(`(?m)(M{4})|(M{3})|(M{2})|(M{1})|(Y{4})|(Y{2})|(D{2})|(D{1})|(d{2})|(d{1})|(h{2})|(h{1})|(m{2})|(m{1})|(s{2})|(s{1})`)
+
+	for _, match := range re.FindAllString(pformat, -1) {
+		for key, val := range formats {
+			if match == key {
+				pformat = strings.Replace(pformat, match, val, -1)
+			}
+		}
+	}
+
+	timeriz := k.Time.Format(pformat)
+	return timeriz
+
+}
+
+//Retrieve current datetime
 func Now() KairStruct {
 	var k KairStruct
 	k.Time = time.Now()
 	return k
 }
 
-func KDate(day int, month int, year int) KairStruct {
+//Retrieves a custom date
+func Date(day int, month int, year int) KairStruct {
 	var k KairStruct
 	k.Time = time.Date(year, months[month], day, 0, 0, 0, 0, time.UTC)
 	return k
 }
 
-func KDateTime(day int, month int, year int, hour int, min int, sec int) KairStruct {
+//Retrieves a custom datetime
+func DateTime(day int, month int, year int, hour int, min int, sec int) KairStruct {
 	var k KairStruct
 	k.Time = time.Date(year, months[month], day, hour, min, sec, 0, time.UTC)
 	return k
