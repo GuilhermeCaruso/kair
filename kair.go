@@ -1,5 +1,6 @@
 // Copyright 2018 Guilherme Caruso. All rights reserved.
 // License that can be found in the LICENSE file.
+// https://godoc.org/github.com/GuilhermeCaruso/Kair
 
 /*
 	Package Kair
