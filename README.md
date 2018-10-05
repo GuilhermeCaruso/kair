@@ -6,7 +6,7 @@
 # Kair
 > Date and Time - Golang Formatter Library
 
-![GitHub](https://img.shields.io/badge/license%20-MIT-green.svg?longCache=true&style=popout-square) ![GitHub](https://img.shields.io/badge/golang%20-v1.11-blue.svg?longCache=true&style=popout-square)
+![GitHub](https://img.shields.io/badge/license%20-MIT-green.svg?longCache=true&style=popout-square) ![GitHub](https://img.shields.io/badge/golang%20-v1.11-blue.svg?longCache=true&style=popout-square) ![Github](https://img.shields.io/badge/codecov-100%25-green.svg?longCache=true&style=popout-square)
 
 ## Setup
 
