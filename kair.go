@@ -2,31 +2,29 @@
 // License that can be found in the LICENSE file.
 
 /*
-	Package Kair
+"Package Kair"
 
-	Used to facilitate the process of formatting dates and times using human language in your process.
+Used to facilitate the process of formatting dates and times using human language in your process.
 
-	Examples:
+Examples:
 
-	> If you need to get the current time:
-		Kair.Now().Time
+> If you need to get the current time:
+	Kair.Now().Time
 
-	> If you need to get a formatted date:
-		Kair.Date().Time
+> If you need to get a formatted date:
+	Kair.Date().Time
 
-	> If you need to get a formatted datetime:
-		Kair.DateTime().Time
-
-
-	> Using standart formatters:
-		Kair.DateTime("20,05,2018,10,20,00").Format("LT") // "10:20 AM"
-		Kair.DateTime("20,05,2018,10,20,00").Format("LL") // "29/5/2018"
-		Kair.DateTime("20,05,2018,10,20,00").Format("llll") // "Mon, May 29, 2018 10:20 AM"
-
-	-> Using custom formatter:
-		Kair.DateTime("20,05,2018,10,20,00").PersonalFormat(""MMM/dd/YY h:m:s"") // "May/20/18 10:20:0"
+> If you need to get a formatted datetime:
+	Kair.DateTime().Time
 
 
+> Using standart formatters:
+	Kair.DateTime("20,05,2018,10,20,00").Format("LT") // "10:20 AM"
+	Kair.DateTime("20,05,2018,10,20,00").Format("LL") // "29/5/2018"
+	Kair.DateTime("20,05,2018,10,20,00").Format("llll") // "Mon, May 29, 2018 10:20 AM"
+
+-> Using custom formatter:
+	Kair.DateTime("20,05,2018,10,20,00").PersonalFormat(""MMM/dd/YY h:m:s"") // "May/20/18 10:20:0"
 */
 package Kair
 
@@ -72,13 +70,13 @@ var (
 	}
 )
 
-//Used to standardize the use of functions
+//KairStruct - Used to standardize the use of functions
 type KairStruct struct {
 	Time time.Time
 }
 
 /*
-	Uses standard sequence for the time format.
+	Format - Uses standard sequence for the time format.
 	Returns a string standart format if var is invalid
 
 	Standard formats :
@@ -115,7 +113,7 @@ func (k KairStruct) Format(format string) string {
 }
 
 /*
-	Uses custom sequence for the time format.
+	CustomFormat - Uses custom sequence for the time format.
 
 	Returns a string custom datetime format
 
@@ -154,21 +152,21 @@ func (k KairStruct) CustomFormat(pformat string) string {
 
 }
 
-//Retrieve current datetime
+//Now - Retrieve current datetime
 func Now() KairStruct {
 	var k KairStruct
 	k.Time = time.Now()
 	return k
 }
 
-//Retrieves a custom date
+//Date - Retrieves a custom date
 func Date(day int, month int, year int) KairStruct {
 	var k KairStruct
 	k.Time = time.Date(year, months[month], day, 0, 0, 0, 0, time.UTC)
 	return k
 }
 
-//Retrieves a custom datetime
+// DateTime - Retrieves a custom datetime
 func DateTime(day int, month int, year int, hour int, min int, sec int) KairStruct {
 	var k KairStruct
 	k.Time = time.Date(year, months[month], day, hour, min, sec, 0, time.UTC)

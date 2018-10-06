@@ -45,8 +45,7 @@ func main() {
 	fmt.Printf("The %s was a %s in %s\n",
 		date.Format("L"),
 		date.CustomFormat("DD"),
-        date.CustomFormat("MMMM"))
-    //The 29/05/1980 was a Thursday in May 
+        date.CustomFormat("MMMM")) //The 29/05/1980 was a Thursday in May 
 }
 
 ```
