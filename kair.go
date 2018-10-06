@@ -2,9 +2,7 @@
 // License that can be found in the LICENSE file.
 
 /*
-"Package Kair"
-
-Used to facilitate the process of formatting dates and times using human language in your process.
+Package Kair Used to facilitate the process of formatting dates and times using human language in your process.
 
 Examples:
 
@@ -26,7 +24,8 @@ Examples:
 -> Using custom formatter:
 	Kair.DateTime("20,05,2018,10,20,00").PersonalFormat(""MMM/dd/YY h:m:s"") // "May/20/18 10:20:0"
 */
-package Kair
+
+package kair
 
 import (
 	"regexp"
@@ -70,19 +69,19 @@ var (
 	}
 )
 
-//KairStruct - Used to standardize the use of functions
-type KairStruct struct {
+//SKair Used to standardize the use of functions
+type SKair struct {
 	Time time.Time
 }
 
 /*
-	Format - Uses standard sequence for the time format.
-	Returns a string standart format if var is invalid
+Format Uses standard sequence for the time format.
+Returns a string standart format if var is invalid
 
-	Standard formats :
-		["LT", "LTS", "L", "l", "LL", "ll", "LLL", "lll", "LLLL", "llll"]
+Standard formats :
+	["LT", "LTS", "L", "l", "LL", "ll", "LLL", "lll", "LLLL", "llll"]
 */
-func (k KairStruct) Format(format string) string {
+func (k *SKair) Format(format string) string {
 	timeLint := k.Time
 	var timeriz string
 	switch format {
@@ -113,30 +112,30 @@ func (k KairStruct) Format(format string) string {
 }
 
 /*
-	CustomFormat - Uses custom sequence for the time format.
+CustomFormat Uses custom sequence for the time format.
 
-	Returns a string custom datetime format
+Returns a string custom datetime format
 
-	Custom formatters :
-		"MMMM": Long Month,
-		"MMM":  Month,
-		"MM":   Zero Number Month,
-		"M":    Number Month,
-		"YYYY": Long Year,
-		"YY":   Year,
-		"DD":   Long Day,
-		"D":    Day,
-		"dd":  	Long Number Day,
-		"d":    Number Day,
-		"hh":   Long Hour,
-		"h":   	Hour,
-		"mm":   Long Minute,
-		"m":    Minute,
-		"ss":   Long Second,
-		"s":    Second
+Custom formatters :
+	"MMMM": Long Month,
+	"MMM":  Month,
+	"MM":   Zero Number Month,
+	"M":    Number Month,
+	"YYYY": Long Year,
+	"YY":   Year,
+	"DD":   Long Day,
+	"D":    Day,
+	"dd":  	Long Number Day,
+	"d":    Number Day,
+	"hh":   Long Hour,
+	"h":   	Hour,
+	"mm":   Long Minute,
+	"m":    Minute,
+	"ss":   Long Second,
+	"s":    Second
 
 */
-func (k KairStruct) CustomFormat(pformat string) string {
+func (k *SKair) CustomFormat(pformat string) string {
 	re := regexp.MustCompile(`(?m)(M{4})|(M{3})|(M{2})|(M{1})|(Y{4})|(Y{2})|(D{2})|(D{1})|(d{2})|(d{1})|(h{2})|(h{1})|(m{2})|(m{1})|(s{2})|(s{1})`)
 
 	for _, match := range re.FindAllString(pformat, -1) {
@@ -153,22 +152,22 @@ func (k KairStruct) CustomFormat(pformat string) string {
 }
 
 //Now - Retrieve current datetime
-func Now() KairStruct {
-	var k KairStruct
+func Now() *SKair {
+	var k SKair
 	k.Time = time.Now()
-	return k
+	return &k
 }
 
 //Date - Retrieves a custom date
-func Date(day int, month int, year int) KairStruct {
-	var k KairStruct
+func Date(day int, month int, year int) *SKair {
+	var k SKair
 	k.Time = time.Date(year, months[month], day, 0, 0, 0, 0, time.UTC)
-	return k
+	return &k
 }
 
 // DateTime - Retrieves a custom datetime
-func DateTime(day int, month int, year int, hour int, min int, sec int) KairStruct {
-	var k KairStruct
+func DateTime(day int, month int, year int, hour int, min int, sec int) *SKair {
+	var k SKair
 	k.Time = time.Date(year, months[month], day, hour, min, sec, 0, time.UTC)
-	return k
+	return &k
 }

@@ -1,4 +1,4 @@
-package Kair
+package kair
 
 import (
 	"fmt"
