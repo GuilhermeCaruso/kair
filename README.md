@@ -14,15 +14,15 @@ To get Kair
 
 ##### > Go CLI
 ```sh
-go get github.com/GuilhermeCaruso/Kair
+go get github.com/GuilhermeCaruso/kair
 ```
 ##### > Go DEP
 ```sh
-dep ensure -add github.com/GuilhermeCaruso/Kair
+dep ensure -add github.com/GuilhermeCaruso/kair
 ```
 ##### > Govendor
 ```sh
-govendor fetch github.com/GuilhermeCaruso/Kair
+govendor fetch github.com/GuilhermeCaruso/kair
 ```
 
 ## Example
@@ -32,7 +32,7 @@ package main
 import (
 	"fmt"
 
-	k "github.com/GuilhermeCaruso/Kair"
+	k "github.com/GuilhermeCaruso/kair"
 )
 
 func main() {
