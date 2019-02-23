@@ -6,7 +6,7 @@
 # Kair
 > Date and Time - Golang Formatting Library
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Go Report Card](https://goreportcard.com/badge/github.com/GuilhermeCaruso/Kair)](https://goreportcard.com/report/github.com/GuilhermeCaruso/Kair) [![codecov](https://codecov.io/gh/GuilhermeCaruso/Kair/branch/master/graph/badge.svg)](https://codecov.io/gh/GuilhermeCaruso/Kair) [![Build Status](https://travis-ci.com/GuilhermeCaruso/Kair.svg?branch=master)](https://travis-ci.com/GuilhermeCaruso/Kair) ![GitHub](https://img.shields.io/badge/golang%20->=1.6.3-blue.svg) [![GoDoc](https://godoc.org/github.com/GuilhermeCaruso/Kair?status.svg)](https://godoc.org/github.com/GuilhermeCaruso/Kair)
+[![Mentioned in Awesome Go](https://awesome.re/mentioned-badge.svg)](https://github.com/avelino/awesome-go)  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Go Report Card](https://goreportcard.com/badge/github.com/GuilhermeCaruso/Kair)](https://goreportcard.com/report/github.com/GuilhermeCaruso/Kair) [![codecov](https://codecov.io/gh/GuilhermeCaruso/Kair/branch/master/graph/badge.svg)](https://codecov.io/gh/GuilhermeCaruso/Kair) [![Build Status](https://travis-ci.com/GuilhermeCaruso/Kair.svg?branch=master)](https://travis-ci.com/GuilhermeCaruso/Kair) ![GitHub](https://img.shields.io/badge/golang%20->=1.6.3-blue.svg) [![GoDoc](https://godoc.org/github.com/GuilhermeCaruso/Kair?status.svg)](https://godoc.org/github.com/GuilhermeCaruso/Kair) 
 
 ## Setup
 
