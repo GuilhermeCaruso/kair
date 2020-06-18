@@ -139,10 +139,8 @@ func (k *SKair) CustomFormat(pformat string) string {
 	re := regexp.MustCompile(`(?m)(M{4})|(M{3})|(M{2})|(M{1})|(Y{4})|(Y{2})|(D{2})|(D{1})|(d{2})|(d{1})|(h{2})|(h{1})|(m{2})|(m{1})|(s{2})|(s{1})`)
 
 	for _, match := range re.FindAllString(pformat, -1) {
-		for key, val := range formats {
-			if match == key {
-				pformat = strings.Replace(pformat, match, val, -1)
-			}
+		if val, ok := formats[match]; ok {
+			pformat = strings.Replace(pformat, match, val, -1)
 		}
 	}
 
